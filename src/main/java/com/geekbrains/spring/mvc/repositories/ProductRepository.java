@@ -24,6 +24,8 @@ public class ProductRepository {
     }
 
     public List<Product> getAll() {
+        System.out.println("getAll()");
+
         return Collections.unmodifiableList(products);
     }
 

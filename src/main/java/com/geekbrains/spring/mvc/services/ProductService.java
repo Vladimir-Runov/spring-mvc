@@ -12,8 +12,8 @@ public class ProductService {
     private ProductRepository productRepository;
 
     @Autowired
-    public void setProductRepository(ProductRepository productRepositoryRepository) {
-        this.productRepository = productRepository;
+    public void setProductRepository(ProductRepository pr) {
+        this.productRepository = pr;
     }
 
     public List<Product> getAll() {
