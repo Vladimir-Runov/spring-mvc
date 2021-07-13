@@ -9,12 +9,7 @@ import java.util.*;
 //          (создание сущности хардкодом, читать/обновлять/удалять существующие сущности)
 public class Entity {
         private static final String CON_STR = "jdbc:sqlite:C:/sql/db_1.db";
-//    private Connection connection = null;  -- вариант реализации
 
-        private static final String SQL_INSERT_PRODUCT = "insert into t_Products (`Title`, `Cost` ) values (?,?)";
-        private static final String SQL_UPD_PRODUCT = "UPDATE t_Products SET Title = ? WHERE id = ?";
-        private static final String SQL_SEL_PRODUCT = "select Title,Cost from t_Products where id = ? ";
-        private static final String SQL_DEL_PRODUCT = "delete from t_Products where id = ? ";
 
     /*   ------------------------  create scema .sql
 CREATE TABLE `spring-mvc`.`t_products` (
