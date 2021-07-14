@@ -34,7 +34,7 @@ public class    ProductService {
         return out;
     }
 
-    public Productt saveOrUpdate(Productt s) {
+    public Product saveOrUpdate(Product s) {
         return studentInMemoryRepository.saveOrUpdate(s);
     }
 

@@ -12,4 +12,21 @@ public class Product {
     private String name;
     private int score;
 
+    //public Product(long l, String x1, int i) {
+    //    id = l;
+    //    name = x1;
+    //    score = i;
+    //}
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long newId) {
+        id = newId;
+    }
 }

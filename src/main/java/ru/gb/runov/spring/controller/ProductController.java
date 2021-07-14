@@ -8,18 +8,22 @@ import ru.gb.runov.spring.model.Product;
 import ru.gb.runov.spring.services.ProductService;
 
 @Controller
-@RequestMapping(@"/products")
-@RequiredArgsConstructor
+@RequestMapping("/products")
+//@RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping // GET http://localhost:8189/app/productss
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping // GET http://localhost:8189/app/products
     public String showAll(Model model,
                           @RequestParam(required = false, name = "min_score") Integer minScore,
                           @RequestParam(required = false, name = "max_score") Integer maxScore
     ) {
-        model.addAttribute("students", productService.findAll(minScore, maxScore));
-        return "students";
+        model.addAttribute("products", productService.findAll(minScore, maxScore));
+        return "products";
     }
 
     @GetMapping("/test")
@@ -31,9 +35,6 @@ public class ProductController {
     @DeleteMapping("/delete/{id}")
     public String deleteStudentById(@PathVariable Long id) {
         productService.deleteBydId(id);
-        return "redirect:/students"; // [http://localhost:8189/app]/products
+        return "redirect:/products"; // [http://localhost:8189/app]/products
     }
-}
-
-
 }
