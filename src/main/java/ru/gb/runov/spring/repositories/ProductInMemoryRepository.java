@@ -47,7 +47,7 @@ public class ProductInMemoryRepository {
 
 
     public Optional<Product> findById(Long id) {
-//        Optional<Product> Product = Optional.of(new Product(1L, "Bob", 70));
+        Optional<Product> Product = Optional.of(new Product(111L, "optional", 70));
 
         return Products.stream()
                 .filter(s -> s.getId().equals(id))

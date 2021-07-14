@@ -29,6 +29,7 @@ public class ProductController {
     @GetMapping("/test")
     @ResponseBody
     public Product getById(@RequestParam Long id){
+
         return productService.findById(id);
     }
 
