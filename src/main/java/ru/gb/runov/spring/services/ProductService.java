@@ -15,14 +15,14 @@ public class    ProductService {
     @Autowired
     private ProductInMemoryRepository studentInMemoryRepository;
 
-    public Product findById_1(Long id) {
-        Optional<Product> pr = Optional.of(new Product(1,"opt",1));
+    public Product findById(Long id) {
+        //Optional<Product> pr = Optional.of(new Product(1,"opt",1));
         //Long id = pr.get().getId();
         return studentInMemoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("This product does not exist - " + id));
     }
-    public Optional<Product> findById(Long id) {
-        return studentInMemoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("This product does not exist - " + id));
-    }
+ //   public Optional<Product> findById_6(Long id) {
+ //       return studentInMemoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("This product does not exist - " + id));
+ //   }
 
 
     public List<Product> findAll() {
