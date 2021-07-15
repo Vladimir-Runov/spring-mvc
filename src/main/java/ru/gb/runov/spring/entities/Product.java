@@ -21,22 +21,11 @@ public class Product {
     private String name;
 
     @Column(name = "cost")
-    private String cost;
+    private int cost;
 
-
-
-
-    public String getCost() {
-        return cost;
-    }
-
-    public void setCost(String cost) {
-        this.cost = cost;
-    }
-
-//    @ManyToOne
-//    @JoinColumn(name = "university_id")
-//    private  university;
+    @ManyToOne
+    @JoinColumn(name = "details_id")
+    private ProductDetails product_details;
 
     public Long getId() {
         return id;
@@ -54,25 +43,30 @@ public class Product {
         this.name = name;
     }
 
-  //  public University getUniversity() {
-  //      return university;
-  //  }
+    public int getCost() {
+        return cost;
+    }
 
-  //  public void setUniversity(University university) {
-  //      this.university = university;
-  //  }
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
 
     public Product() {
     }
 
-    //public Student(String name, University university) {
-    //    this.name = name;
-    //    this.university = university;
-    //}
 
     @Override
     public String toString() {
         return String.format("Product [id = %d, name = %s]", id, name);
+    }
+
+    public ProductDetails getProduct_details() {
+        return product_details;
+    }
+
+    public void setProduct_details(ProductDetails product_details) {
+        this.product_details = product_details;
     }
 
 }
