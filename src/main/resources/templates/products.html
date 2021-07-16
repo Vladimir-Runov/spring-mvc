@@ -14,8 +14,8 @@
 <div class="container">
     <h1>товары</h1>
     <form method="get" th:action="@{'/products'}">
-        <input class="form-control" th:value="${param.min_score != null ? param.min_score : ''}" type="number" placeholder="����������� ����" name="min_score"/>
-        <input class="form-control" th:value="${param.max_score != null ? param.max_score : ''}" type="number" placeholder="������������ ����" name="max_score"/>
+        <input class="form-control" th:value="${param.min_price != null ? param.min_price : ''}" type="number" placeholder="����������� ����" name="min_price"/>
+        <input class="form-control" th:value="${param.max_price != null ? param.max_price : ''}" type="number" placeholder="������������ ����" name="max_price"/>
         <button class="btn btn-primary" type="submit">действия</button>
     </form>
     <h1>список товаров</h1>
@@ -32,9 +32,9 @@
         <tr th:each="s : ${products}">
             <td th:text="${s.id}"/>
             <td th:text="${s.name}"/>
-            <td th:text="${s.score}"/>
+            <td th:text="${s.price}"/>
             <td>
-                <a class="btn btn-danger" th:href="@{'/products/delete/' + ${s.id}}">�������</a>
+                <a class="btn btn-danger" th:href="@{'/products/delete/' + ${s.id}}">del</a>
             </td>
         </tr>
         </tbody>
