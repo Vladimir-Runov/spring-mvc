@@ -1,14 +1,20 @@
 package ru.gb.runov.spring.repositories;
 
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
-import ru.gb.runov.spring.model.Product;
+import ru.gb.runov.spring.model.entities.Product;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
 
 @Component
 public class ProductInMemoryRepository {
+    //  deleted
+}
+/*
+
     private List<Product> Products;
 
     @PostConstruct
@@ -19,6 +25,7 @@ public class ProductInMemoryRepository {
                 new Product(3L, "x3", 60)
         ));
     }
+
 
     public Product saveOrUpdate(Product s) {
         if (s.getId() != null) {
@@ -47,8 +54,7 @@ public class ProductInMemoryRepository {
 
 
     public Optional<Product> findById(Long id) {
-        Optional<Product> Product = Optional.of(new Product(111L, "optional", 70));
-
+       // Optional<Product> Product = Optional.of(new Product(111L, "optional", 70));
         return Products.stream()
                 .filter(s -> s.getId().equals(id))
                 .findFirst();
@@ -58,4 +64,9 @@ public class ProductInMemoryRepository {
     public void deleteById(Long id) {
         Products.removeIf(s -> s.getId().equals(id));
     }
+
+    public <T> List<Product> findAll(Specification<Product> spec, PageRequest of) {
+        return Collections.unmodifiableList(Products);
+    }
 }
+*/

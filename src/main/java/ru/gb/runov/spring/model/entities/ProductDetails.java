@@ -1,4 +1,4 @@
-package ru.gb.runov.spring.entities;
+package ru.gb.runov.spring.model.entities;
 
 import javax.persistence.*;
 
