@@ -2,6 +2,7 @@ package ru.gb.runov.spring.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /* Добавить метод получения продукта по id с использованием Optional
 Сделать обработку исключения на случай, если продукта с запрашиваемым id не существует
@@ -25,6 +26,13 @@ public class Product {
 
         @Column(name = "price")
         private int price;
+
+    @Column(name = "created_at")
+    private LocalDateTime created_at;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updated_at;
+
 
         @ManyToOne
         @JoinColumn(name = "details_id")

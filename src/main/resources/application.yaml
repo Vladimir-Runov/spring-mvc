@@ -1,16 +1,19 @@
 server:
   port: 8189
   servlet:
-    context-path: /app
-
-spring:
-	datasource:
-		driver-class-name:org.postgresql.Driver
-		url:jdbc:postgresql://localhost:5432/postgres?currentSchema=prodmag
-		username:postgres
-		password:postgres
-	jpa:
-		show-sql:true
-		properties:
-			hibernate:
-				current_session_context_class:thread
+    context-path: /ru
+spring.datasource: 
+  driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:mydatabase;MODE=PostgreSQL
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false

@@ -16,6 +16,12 @@ import ru.gb.runov.spring.model.dtos.ProductDto;
 import ru.gb.runov.spring.model.entities.Product;
 import ru.gb.runov.spring.repositories.specifications.ProductSpecifications;
 import ru.gb.runov.spring.services.ProductService;
+/*
+Урок 8. Thymeleaf
+1) Cделайте страницу для отображения всех товаров.
+2)* Рядом с каждым товаром в таблице попробуйте сделать кнопку “Удалить”, при нажатии на которую товар должен быть удален и базы.
+3)** Попробуйте реализовать разбивку всех товаров на страницы, по 10 товаров на каждой.
+*/
 
 @Controller
 //@RestController
@@ -27,7 +33,6 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
-
 
     @GetMapping
     public Page<ProductDto> findAllProducts(
