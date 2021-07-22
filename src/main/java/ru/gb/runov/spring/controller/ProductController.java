@@ -84,11 +84,9 @@ public class ProductController {
     public Product getById(@RequestParam Long id){
         return productService.findById(id);
     }
-
     //    @DeleteMapping("/delete/{id}")
       //  productService.deleteById(id);
       //  return "redirect:/products"; // [http://localhost:8189/app]/products
-
 //
     @GetMapping
     public Page<ProductDto> findAllProducts(
@@ -100,5 +98,4 @@ public class ProductController {
         }
         return productService.findAll(ProductSpecifications.build(params), page, 2);
     }
-
       */
