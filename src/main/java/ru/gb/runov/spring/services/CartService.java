@@ -49,6 +49,7 @@ public class CartService {
     }
 
     public Optional<ProductDto> findProductById(Long id) {
-        return findProductByIdEx(id); //map(ProductDto::new);
+        //  не знаю пока как тут быть.... жду ответ от Александра.
+        return Optional.empty(); // findProductByIdEx(id); //map(ProductDto::new);
     }
 }
