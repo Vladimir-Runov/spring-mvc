@@ -44,7 +44,7 @@ public class ProductController {
         return productService.findAll(ProductSpecifications.build(params), page, 2);
     }
 
-    // http://localhost:8189/market/api/v1/products
+    // http://localhost:8189/rrr/api/v1/products
     @GetMapping("/{id}")
     public ProductDto findProductById(@PathVariable Long id) {
         return productService.findProductById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exist"));

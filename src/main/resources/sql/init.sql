@@ -58,3 +58,13 @@ INSERT INTO prodmag.products (id,name, price, details_id) VALUES
 
 SELECT * FROM prodmag.products
 ORDER BY id ASC 
+
+
+GRANT ALL ON SEQUENCE prodmag.product_details_id_seq TO postgres;
+
+GRANT ALL ON SEQUENCE prodmag.products_id_seq TO postgres;
+
+GRANT ALL ON TABLE prodmag.product_details TO postgres;
+
+GRANT ALL ON TABLE prodmag.products TO postgres;
+
