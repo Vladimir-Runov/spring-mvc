@@ -16,6 +16,12 @@ import ru.gb.runov.spring.model.dtos.ProductDto;
 import ru.gb.runov.spring.model.entities.Product;
 import ru.gb.runov.spring.repositories.specifications.ProductSpecifications;
 import ru.gb.runov.spring.services.ProductService;
+/*
+Урок 8. Thymeleaf
+1) Cделайте страницу для отображения всех товаров.
+2)* Рядом с каждым товаром в таблице попробуйте сделать кнопку “Удалить”, при нажатии на которую товар должен быть удален и базы.
+3)** Попробуйте реализовать разбивку всех товаров на страницы, по 10 товаров на каждой.
+*/
 
 @Controller
 //@RestController
@@ -28,7 +34,6 @@ public class ProductController {
         this.productService = productService;
     }
 
-
     @GetMapping
     public Page<ProductDto> findAllProducts(
             @RequestParam MultiValueMap<String, String> params,
@@ -39,7 +44,7 @@ public class ProductController {
         return productService.findAll(ProductSpecifications.build(params), page, 2);
     }
 
-    // http://localhost:8189/market/api/v1/products
+    // http://localhost:8189/rrr/api/v1/products
     @GetMapping("/{id}")
     public ProductDto findProductById(@PathVariable Long id) {
         return productService.findProductById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exist"));
@@ -79,11 +84,9 @@ public class ProductController {
     public Product getById(@RequestParam Long id){
         return productService.findById(id);
     }
-
     //    @DeleteMapping("/delete/{id}")
       //  productService.deleteById(id);
       //  return "redirect:/products"; // [http://localhost:8189/app]/products
-
 //
     @GetMapping
     public Page<ProductDto> findAllProducts(
@@ -95,5 +98,4 @@ public class ProductController {
         }
         return productService.findAll(ProductSpecifications.build(params), page, 2);
     }
-
       */
