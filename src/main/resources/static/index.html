@@ -15,14 +15,14 @@
 <body>
 
 <div class="container" ng-controller="indexController">
-    <h1>Marked RRR</h1>
+    <h1>Marked RRR ver 2.6</h1>
 
     <h3>Фильтр</h3>
     <form novalidate ng-submit="fillTable()">
         <div class="form-group row">
             <div class="form-group col-md-3">
-                <label for="filterTitle">Название товара</label>
-                <input class="form-control" type="text" ng-model="filter.title" id="filterTitle">
+                <label for="filterName">Название товара</label>
+                <input class="form-control" type="text" ng-model="filter.name" id="filterName">
             </div>
             <div class="form-group col-md-3">
                 <label for="filterMinPrice">Минимальная цена</label>
@@ -42,14 +42,14 @@
     <table class="table table-hover" cellpadding="0" cellspacing="0">
         <thead>
         <tr>
-            <td>Название</td>
+            <td>Название..</td>
             <td>Цена</td>
             <td></td>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="p in ProductsPage.content">
-            <td>{{p.title}}</td>
+            <td>{{p.name}}</td>
             <td>{{p.price}}</td>
             <td>
                 <button class="btn btn-danger" ng-click="deleteProductById(p.id)">Удалить товар</button>
@@ -77,8 +77,8 @@
     <h3>Добавить новый товар</h3>
     <form novalidate ng-submit="submitCreateNewProduct()">
         <div class="form-group col-md-6">
-            <label for="newProductTitle">Название</label>
-            <input class="form-control" type="text" ng-model="newProduct.title" id="newProductTitle">
+            <label for="newProductName">Название</label>
+            <input class="form-control" type="text" ng-model="newProduct.name" id="newProductName">
         </div>
         <div class="form-group col-md-6">
             <label for="newProductPrice">Цена</label>

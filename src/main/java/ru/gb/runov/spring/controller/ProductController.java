@@ -23,11 +23,12 @@ import ru.gb.runov.spring.services.ProductService;
 3)** Попробуйте реализовать разбивку всех товаров на страницы, по 10 товаров на каждой.
 */
 
-@Controller
-//@RestController
+//@Controller
+@RestController
 @RequestMapping("/api/v1/products")
 //@RequiredArgsConstructor
 public class ProductController {
+    //
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
@@ -43,8 +44,9 @@ public class ProductController {
         }
         return productService.findAll(ProductSpecifications.build(params), page, 2);
     }
-
     // http://localhost:8189/rrr/api/v1/products
+
+
     @GetMapping("/{id}")
     public ProductDto findProductById(@PathVariable Long id) {
         return productService.findProductById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exist"));
