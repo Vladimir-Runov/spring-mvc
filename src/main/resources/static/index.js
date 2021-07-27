@@ -6,7 +6,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             url: contextPath + '/products',
             method: 'GET',
             params: {
-                title: $scope.filter ? $scope.filter.title : null,
+                name: $scope.filter ? $scope.filter.name : null,
                 min_price: $scope.filter ? $scope.filter.min_price : null,
                 max_price: $scope.filter ? $scope.filter.max_price : null,
                 p: pageIndex
@@ -45,7 +45,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     };
 
     $scope.deleteProductById = function (productId) {
-        $http.delete(contextPath + '/products/' + productId)
+        $http.delete(contextPath + '/products/delete/' + productId)
             .then(function (response) {
                 $scope.fillTable();
             });

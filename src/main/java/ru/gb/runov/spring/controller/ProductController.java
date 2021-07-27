@@ -1,7 +1,5 @@
 package ru.gb.runov.spring.controller;
 
-import lombok.RequiredArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.MultiValueMap;
@@ -23,11 +21,12 @@ import ru.gb.runov.spring.services.ProductService;
 3)** Попробуйте реализовать разбивку всех товаров на страницы, по 10 товаров на каждой.
 */
 
-@Controller
-//@RestController
+//@Controller
+@RestController
 @RequestMapping("/api/v1/products")
 //@RequiredArgsConstructor
 public class ProductController {
+    //
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
@@ -43,16 +42,13 @@ public class ProductController {
         }
         return productService.findAll(ProductSpecifications.build(params), page, 2);
     }
-
     // http://localhost:8189/rrr/api/v1/products
-    @GetMapping("/{id}")
-    public ProductDto findProductById(@PathVariable Long id) {
-        return productService.findProductById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exist"));
-    }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Product saveNewProduct(@RequestBody Product product) {
+        System.out.println(product.getName());
         product.setId(null);
         return productService.saveOrUpdate(product);
     }
@@ -62,40 +58,14 @@ public class ProductController {
         return productService.saveOrUpdate(product);
     }
 
-    @DeleteMapping("/{id}")
-    public void updateProduct(@PathVariable Long id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteProduct(@PathVariable Long id) {
         productService.deleteById(id);
+    }
+
+    @GetMapping("/{id}")
+    public ProductDto findProductById(@PathVariable Long id) {
+        return productService.findProductById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exist"));
     }
 }
 
-    //////////////
-     /*
-    @GetMapping // GET http://localhost:8189/app/products
-    public String showAll(Model model,
-                          @RequestParam(required = false, name = "min_score") Integer minScore,
-                          @RequestParam(required = false, name = "max_score") Integer maxScore
-    ) {
-        model.addAttribute("products", productService.findAll(minScore, maxScore));
-        return "products";
-    }
-
-    @GetMapping("/test")
-    @ResponseBody
-    public Product getById(@RequestParam Long id){
-        return productService.findById(id);
-    }
-    //    @DeleteMapping("/delete/{id}")
-      //  productService.deleteById(id);
-      //  return "redirect:/products"; // [http://localhost:8189/app]/products
-//
-    @GetMapping
-    public Page<ProductDto> findAllProducts(
-            @RequestParam MultiValueMap<String, String> params,
-            @RequestParam(name = "p", defaultValue = "1") Integer page
-    ) {
-        if (page < 1) {
-            page = 1;
-        }
-        return productService.findAll(ProductSpecifications.build(params), page, 2);
-    }
-      */
