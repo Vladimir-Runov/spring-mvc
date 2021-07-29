@@ -5,7 +5,6 @@ import org.springframework.util.MultiValueMap;
 
 import ru.gb.runov.spring.model.entities.Product;
 
-
 public class ProductSpecifications {
     private static Specification<Product> priceGreaterOrEqualsThan(int minPrice) {
         return (Specification<Product>) (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("price"), minPrice);
