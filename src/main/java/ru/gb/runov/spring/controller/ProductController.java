@@ -5,28 +5,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
 import ru.gb.runov.spring.exceptions.ResourceNotFoundException;
 import ru.gb.runov.spring.model.dtos.ProductDto;
 import ru.gb.runov.spring.model.entities.Product;
 import ru.gb.runov.spring.repositories.specifications.ProductSpecifications;
 import ru.gb.runov.spring.services.ProductService;
-/*
-Урок 8. Thymeleaf
-1) Cделайте страницу для отображения всех товаров.
-2)* Рядом с каждым товаром в таблице попробуйте сделать кнопку “Удалить”, при нажатии на которую товар должен быть удален и базы.
-3)** Попробуйте реализовать разбивку всех товаров на страницы, по 10 товаров на каждой.
-*/
 
-//@Controller
 @RestController
 @RequestMapping("/api/v1/products")
-//@RequiredArgsConstructor
 public class ProductController {
-    //
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
@@ -43,8 +30,6 @@ public class ProductController {
         return productService.findAll(ProductSpecifications.build(params), page, 2);
     }
     // http://localhost:8189/rrr/api/v1/products
-
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Product saveNewProduct(@RequestBody Product product) {
@@ -68,4 +53,3 @@ public class ProductController {
         return productService.findProductById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exist"));
     }
 }
-
